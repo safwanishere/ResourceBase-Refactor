@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses for {{ branch_name }}</title>
+</head>
+<body>
+    <h1>Courses for {{ branch_name }}</h1>
+    
+    {% if semesters %}
+        {% for semester, courses in semesters.items() %}
+            <h2>Semester {{ semester }}</h2>
+            <ul>
+                {% for course in courses %}
+                    <li>
+                        <strong>{{ course['course_name'] }}</strong> 
+                        (Code: {{ course['code'] }}, Type: {{ course['type'] }})
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>No courses found for this branch.</p>
+    {% endif %}
+</body>
+</html>
