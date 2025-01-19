@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root {
+    --primary-color: #3ecf8e;
+    --text-color: #ececec;
+    --bg-color: #121212;
+    --card-bg: #1f1f1f;
+    --navbar-bg: rgba(18, 18, 18, 0.8);
+    --footer-bg: #1a1a1a;
+    --error-color: #ff4b4b;
+    --input-bg: rgba(255, 255, 255, 0.02);
+}
+
+body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+}
+
+h1 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    letter-spacing: -0.025em;
+}
+
+form {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.input-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    color: var(--text-color);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+input {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    background-color: var(--input-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    color: var(--text-color);
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.15);
+}
+
+input::placeholder {
+    color: rgba(236, 236, 236, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 0.625rem;
+    margin-top: 0.5rem;
+    background-color: var(--primary-color);
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #2fb77a;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.25);
+}
+
+.admin-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 380px) {
+    form {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.25rem;
+    }
+}
+
+.back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.back-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        padding: 1rem;
+        margin-top: 4rem;
+    }
+
+    .back-button {
+        top: 1rem;
+        left: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    form {
+        padding: 1.25rem;
+    }
+    
+    h1 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+        margin-bottom: 1rem;
+    }
+
+    .back-button {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
