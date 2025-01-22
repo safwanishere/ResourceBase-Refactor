@@ -29,6 +29,33 @@
                 <input type="file" id="fileInput" style="display: none;" required>
             </div>
 
+            <select name="branch">
+                <option selected disabled value="">Choose a branch</option>
+                {% if branches|length > 1 %}
+                    {% for branch in branches %}
+                        <option value='{{ branch[0] }}'>{{ branch[0] }}</option>
+                    {% endfor %}
+                {% else %}
+                    {% for branch in branches %}
+                        <option value='{{ branch }}'>{{ branch }}</option>
+                    {% endfor %}
+                {% endif %}
+            </select>
+    
+            <select name="course">
+                <option selected disabled value="">Choose a course</option>
+                {% for course in courses %}
+                    <option value='{{ course[0] }}'>{{ course[0] ~ " - " ~ course[1] ~ " - sem " ~ course[2] }}</option>
+                {% endfor %}
+            </select>
+
+            <select name="category">
+                <option selected disabled value="">Choose a category</option>
+                {% for category in categories %}
+                    <option value='{{ category }}'>{{ category }}</option>
+                {% endfor %}
+            </select>    
+
             <div class="input-group">
                 <label for="fileName">File Name</label>
                 <input 
