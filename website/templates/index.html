@@ -1,312 +1,473 @@
 <!DOCTYPE html>
 <html lang="en" class="sl-theme-dark">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/themes/dark.css" />
-    <script type="module"
-        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/shoelace-autoloader.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/themes/dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/shoelace-autoloader.js"
+    ></script>
     <script src="../static/script.js" defer></script>
     <title>Resource Hub - Everything you need, to learn</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <div class="announcement-banner">
+      <div class="announcement-content">
+        <p>
+          Join our WhatsApp Community for exclusive resources and updates —
+          <a href="#" class="announcement-link">Click here</a>
+        </p>
+      </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Resource Hub</a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#faq-section">FAQs</a>
-                <a href="#cta fullscreen-section">Community</a>
-                <div class="btn-group">
-                    <sl-button size="small">Start learning</sl-button>
-                    <a href="/admin/login">
-                        <sl-button size="small" variant="primary">Admin Login</sl-button>
-                    </a>
-                </div>
-            </div>
+      <div class="container">
+        <a href="#" class="logo">Resource Hub</a>
+        <div class="nav-links">
+          <a href="#cta fullscreen-section">Community</a>
+          <div class="btn-group">
+            <sl-button size="small">Contact</sl-button>
+            <a href="/admin/login">
+              <sl-button size="small" variant="primary">Admin Login</sl-button>
+            </a>
+          </div>
         </div>
+      </div>
     </nav>
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="hero-background">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-background">
         <div class="gradient-blur-1"></div>
         <div class="gradient-blur-2"></div>
-    </div>
-    <div class="container">
+      </div>
+      <div class="container">
         <div class="hero-content">
-            <span class="hero-badge">
-                <sl-icon name="stars"></sl-icon>
-                <span>Your Ultimate Learning Platform</span>
-            </span>
-            <h1>Everything you need,
-                <br><span class="gradient-text">to learn.</span>
-            </h1>
-            <p class="hero-subtitle">Welcome to the ultimate resource destination for academic success. All your course
-                textbooks and reference materials, conveniently in one place.</p>
-            <div class="hero-cta">
-                <sl-button variant="default" size="small">Start exploring free</sl-button>
+          <span class="hero-badge">
+            <sl-icon name="stars"></sl-icon>
+            <span>Your Ultimate Learning Platform</span>
+          </span>
+          <h1>
+            Everything you need, <br /><span class="gradient-text"
+              >to learn.</span
+            >
+          </h1>
+          <p class="hero-subtitle">
+            Welcome to the ultimate resource destination for academic success.
+            All your course textbooks and reference materials, conveniently in
+            one place.
+          </p>
+          <div class="hero-cta">
+            <sl-button variant="default" size="small"
+              >Start exploring free</sl-button
+            >
 
             <sl-button size="small" variant="primary">
-                <sl-icon name="book"></sl-icon>
-                View Library</sl-button>
+              <sl-icon name="book"></sl-icon>
+              View Library</sl-button
+            >
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div
+              id="stat1"
+              class="stat-value"
+              data-target="500"
+              data-suffix="+"
+            >
+              0
             </div>
-        </div>
-    <div class="hero-stats">
-        <div class="stat">
-            <div id="stat1" class="stat-value" data-target="500" data-suffix="+">0</div>
             <div class="stat-label">Materials</div>
-        </div>
-        <div class="divider"></div>
-        <div class="stat">
-            <div id="stat2" class="stat-value" data-target="5000" data-suffix="+">0</div>
+          </div>
+          <div class="divider"></div>
+          <div class="stat">
+            <div
+              id="stat2"
+              class="stat-value"
+              data-target="5000"
+              data-suffix="+"
+            >
+              0
+            </div>
             <div class="stat-label">Students</div>
-        </div>
-        <div class="divider"></div>
-        <div class="stat">
-            <div id="stat3" class="stat-value" data-target="50" data-suffix="+">0</div>
+          </div>
+          <div class="divider"></div>
+          <div class="stat">
+            <div id="stat3" class="stat-value" data-target="50" data-suffix="+">
+              0
+            </div>
             <div class="stat-label">Subjects</div>
+          </div>
         </div>
-    </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- Marquee Section -->
-<section class="marquee-section">
-    <div class="marquee">
+    <!-- Marquee Section -->
+    <section class="marquee-section">
+      <div class="marquee">
         <div class="marquee-content">
-            <span>Computer Science</span>
-            <span>Mathematics</span>
-            <span>Data Structures</span>
-            <span>Operating Systems</span>
-            <span>Software Engineering</span>
-            <span>Digital Logic</span>
-            <span>Computer Networks</span>
-            <span>Database Management</span>
-            <span>Artificial Intelligence</span>
-            <span>Machine Learning</span>
+          <span>Computer Science</span>
+          <span>Mathematics</span>
+          <span>Data Structures</span>
+          <span>Operating Systems</span>
+          <span>Software Engineering</span>
+          <span>Digital Logic</span>
+          <span>Computer Networks</span>
+          <span>Database Management</span>
+          <span>Artificial Intelligence</span>
+          <span>Machine Learning</span>
         </div>
         <div class="marquee-content">
-            <span>Computer Science</span>
-            <span>Mathematics</span>
-            <span>Data Structures</span>
-            <span>Operating Systems</span>
-            <span>Software Engineering</span>
-            <span>Digital Logic</span>
-            <span>Computer Networks</span>
-            <span>Database Management</span>
-            <span>Artificial Intelligence</span>
-            <span>Machine Learning</span>
+          <span>Computer Science</span>
+          <span>Mathematics</span>
+          <span>Data Structures</span>
+          <span>Operating Systems</span>
+          <span>Software Engineering</span>
+          <span>Digital Logic</span>
+          <span>Computer Networks</span>
+          <span>Database Management</span>
+          <span>Artificial Intelligence</span>
+          <span>Machine Learning</span>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-
-<!-- Features Section -->
-<section id="features" class="features fullscreen-section">
-    <div class="features-container">
-        <h2>Designed for <span class="gradient-text">modern learning</span></h2>
-        <p class="features-subtitle">
-            Transform your educational journey with our cutting-edge learning platform
+    <!-- Branch Selection Section -->
+    <section id="branches" class="branches fullscreen-section">
+      <div class="branches-container">
+        <h2>Select Your Branch</h2>
+        <p class="branches-subtitle">
+          Choose your course to get the best learning resources tailored for you
         </p>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="icon-container">
-                    <sl-icon name="book-half"></sl-icon>
-                </div>
-                <h3>Seamless Resources</h3>
-                <p>Access an extensive collection of academic resources, ensuring you never run out of valuable content
-                    to aid your learning</p>
-                <span class="badge">Extensive</span>
+        <div class="branches-grid">
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-code"></i>
             </div>
+            <h3>Computer Science Engineering</h3>
+            <p>
+              Explore the world of software development, algorithms, and
+              cutting-edge technology.
+            </p>
+          </div>
 
-            <div class="feature-card">
-                <div class="icon-container">
-                    <sl-icon name="cloud-arrow-down"></sl-icon>
-                </div>
-                <h3>Instant Access</h3>
-                <p>Zero loading time with our optimized delivery system, ensuring seamless learning experiences</p>
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-shield-alt"></i>
             </div>
+            <h3>Cybersecurity</h3>
+            <p>
+              Learn how to protect systems and networks from cyber threats with
+              practical knowledge.
+            </p>
+          </div>
 
-            <div class="feature-card">
-                <div class="icon-container">
-                    <sl-icon name="cloud-upload"></sl-icon>
-                </div>
-                <h3>User Uploads</h3>
-                <p>Upload your materials and help others learn with shared content for a collaborative learning
-                    environment</p>
-                <span class="badge">New</span>
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-laptop"></i>
             </div>
+            <h3>Information Technology</h3>
+            <p>
+              Dive into IT systems, networks, and modern business solutions
+              using technology.
+            </p>
+          </div>
 
-            <div class="feature-card">
-                <div class="icon-container">
-                    <sl-icon name="phone"></sl-icon>
-                </div>
-                <h3>Mobile Ready</h3>
-                <p>Study on any device with our responsive platform, keeping your progress synchronized</p>
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-bolt"></i>
             </div>
+            <h3>Electronics & Electrical</h3>
+            <p>
+              Understand electrical circuits, systems, and the principles behind
+              modern electronics.
+            </p>
+          </div>
 
-            <div class="feature-card">
-                <div class="icon-container">
-                    <sl-icon name="check-circle"></sl-icon>
-                </div>
-                <h3>Verified Resources</h3>
-                <p>Gain access to verified materials curated by college professors to ensure high-quality academic
-                    content</p>
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-cogs"></i>
             </div>
+            <h3>Mechanical Engineering</h3>
+            <p>
+              Master the mechanics, materials, and manufacturing processes of
+              mechanical systems.
+            </p>
+          </div>
 
-            <div class="feature-card">
-                <div class="icon-container">
-                    <sl-icon name="github"></sl-icon>
-                </div>
-                <h3>Open Source</h3>
-                <p>Contribute to the global knowledge pool with open-source learning resources accessible to all</p>
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-brain"></i>
             </div>
+            <h3>Artificial Intelligence & ML</h3>
+            <p>
+              Learn the basics and applications of AI and machine learning for
+              intelligent systems.
+            </p>
+          </div>
+
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Data Science</h3>
+            <p>
+              Analyze and interpret complex data to help businesses make
+              informed decisions.
+            </p>
+          </div>
+
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-broadcast-tower"></i>
+            </div>
+            <h3>Electronics & Communication</h3>
+            <p>
+              Focus on designing communication systems and electronic devices
+              for modern networks.
+            </p>
+          </div>
+
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-hard-hat"></i>
+            </div>
+            <h3>Civil Engineering</h3>
+            <p>
+              Learn to design, build, and maintain infrastructure such as roads,
+              bridges, and buildings.
+            </p>
+          </div>
+
+          <div class="branch-card">
+            <div class="icon-container">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Aeronautical Engineering</h3>
+            <p>
+              Explore the principles behind the design and operation of aircraft
+              and spacecraft.
+            </p>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- FAQ Section -->
-<section id="faq-section" class="faq-section">
-    <div class="faq-container">
+    <!-- FAQ Section -->
+    <section id="faq-section" class="faq-section">
+      <div class="faq-container">
         <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
-        <p class="faq-subtitle">Everything you need to know about our platform and its features</p>
+        <p class="faq-subtitle">
+          Everything you need to know about our platform and its features
+        </p>
 
         <div class="faq-grid">
-            <div class="faq-item">
-                <button class="faq-trigger">
-                    <span>Is there any cost to use the platform?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 8L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        <path d="M16 12L8 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                </button>
-                <div class="faq-content">
-                    <div class="faq-answer">
-                        No, the platform is completely free for everyone to use. All materials are accessible without
-                        any charges.
-                    </div>
-                </div>
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span>Is there any cost to use the platform?</span>
+              <svg
+                class="faq-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M12 8L12 16"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 12L8 12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">
+                No, the platform is completely free for everyone to use. All
+                materials are accessible without any charges.
+              </div>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-trigger">
-                    <span>Do I need to sign up to use the platform?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 8L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        <path d="M16 12L8 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                </button>
-                <div class="faq-content">
-                    <div class="faq-answer">
-                        No sign-up is required. Simply select your department and semester to access the
-                        subject-specific materials directly.
-                    </div>
-                </div>
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span>Do I need to sign up to use the platform?</span>
+              <svg
+                class="faq-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M12 8L12 16"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 12L8 12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">
+                No sign-up is required. Simply select your department and
+                semester to access the subject-specific materials directly.
+              </div>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-trigger">
-                    <span>How do I access the materials?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 8L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        <path d="M16 12L8 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                </button>
-                <div class="faq-content">
-                    <div class="faq-answer">
-                        After selecting your department and semester, you'll be able to access all the relevant subject
-                        materials in a simple, easy-to-navigate format.
-                    </div>
-                </div>
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span>How do I access the materials?</span>
+              <svg
+                class="faq-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M12 8L12 16"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 12L8 12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">
+                After selecting your department and semester, you'll be able to
+                access all the relevant subject materials in a simple,
+                easy-to-navigate format.
+              </div>
             </div>
+          </div>
 
-            <div class="faq-item">
-                <button class="faq-trigger">
-                    <span>What kind of support is available?</span>
-                    <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 8L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                        <path d="M16 12L8 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                </button>
-                <div class="faq-content">
-                    <div class="faq-answer">
-                        We offer support through our help resources and email. You can easily reach out if you need
-                        assistance accessing materials.
-                    </div>
-                </div>
+          <div class="faq-item">
+            <button class="faq-trigger">
+              <span>What kind of support is available?</span>
+              <svg
+                class="faq-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M12 8L12 16"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 12L8 12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <div class="faq-content">
+              <div class="faq-answer">
+                We offer support through our help resources and email. You can
+                easily reach out if you need assistance accessing materials.
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-
-
-<!-- CTA Section -->
-<section id="cta fullscreen-section" class="cta fullscreen-section">
-    <div class="container">
+    <!-- CTA Section -->
+    <section id="cta fullscreen-section" class="cta fullscreen-section">
+      <div class="container">
         <div class="cta-content">
-            <h2>Stay updated with the latest news!</h2>
-            <p>Join our WhatsApp community for instant updates and announcements.</p>
-            <a href="https://chat.whatsapp.com/yourlink" target="_blank">
-                <sl-button variant="primary">Join the WhatsApp Community</sl-button>
-            </a>
+          <h2>Stay updated with the latest news!</h2>
+          <p>
+            Join our WhatsApp community for instant updates and announcements.
+          </p>
+          <a href="https://chat.whatsapp.com/yourlink" target="_blank">
+            <sl-button variant="primary">Join the WhatsApp Community</sl-button>
+          </a>
         </div>
-    </div>
-</section>
-
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo">Resource Hub</a>
-                    <p>Making education accessible to everyone.</p>
-                    <div class="social-links">
-                        <a href="#"><sl-icon name="twitter"></sl-icon></a>
-                        <a href="#"><sl-icon name="github"></sl-icon></a>
-                        <a href="#"><sl-icon name="linkedin"></sl-icon></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Product</h4>
-                    <a href="#">Features</a>
-                    <a href="#">Pricing</a>
-                    <a href="#">Resources</a>
-                    <a href="#">Updates</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <a href="#">About</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Contact</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Resources</h4>
-                    <a href="#">Documentation</a>
-                    <a href="#">Help Center</a>
-                    <a href="#">Community</a>
-                    <a href="#">Status</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Legal</h4>
-                    <a href="#">Privacy</a>
-                    <a href="#">Terms</a>
-                    <a href="#">Security</a>
-                    <a href="#">DPA</a>
-                </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#" class="logo">Resource Hub</a>
+            <p>Making education accessible to everyone.</p>
+            <div class="social-links">
+              <a href="#"><sl-icon name="twitter"></sl-icon></a>
+              <a href="#"><sl-icon name="github"></sl-icon></a>
+              <a href="#"><sl-icon name="linkedin"></sl-icon></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Resource Hub. All rights reserved.</p>
-            </div>
+          </div>
+          <div class="footer-links">
+            <h4>Product</h4>
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Resources</a>
+            <a href="#">Updates</a>
+          </div>
+          <div class="footer-links">
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="footer-links">
+            <h4>Resources</h4>
+            <a href="#">Documentation</a>
+            <a href="#">Help Center</a>
+            <a href="#">Community</a>
+            <a href="#">Status</a>
+          </div>
+          <div class="footer-links">
+            <h4>Legal</h4>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Security</a>
+            <a href="#">DPA</a>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Resource Hub. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

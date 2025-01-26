@@ -6,7 +6,9 @@
     --navbar-bg: rgba(18, 18, 18, 0.8);
     --footer-bg: #1a1a1a;
 }
-
+main {
+    padding-top: calc(40px + 72px); /* announcement (40px) + navbar height (padding + content) */
+}
 * {
     margin: 0;
     padding: 0;
@@ -41,7 +43,7 @@ body {
     padding: 1rem 0;
     position: fixed;
     width: 100%;
-    top: 0;
+    top: 40px; /* announcement banner's height.. */
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -244,7 +246,7 @@ body {
     color: #a1a1a1;
 }
 
-.features {
+/* .features {
     position: relative;
     padding: 6rem 0;
     background: linear-gradient(
@@ -417,7 +419,7 @@ body {
     .feature-card {
         padding: 2rem;
     }
-}
+} */
 
 .faq-section {
     position: relative;
@@ -858,6 +860,14 @@ h1 {
     margin: 0 auto;
 }
 
+.hero-stats:hover {
+    border-color: rgba(62, 207, 142, 0.2);
+    box-shadow: 
+        0 10px 30px -15px rgba(62, 207, 142, 0.15),
+        0 0 0 1px rgba(62, 207, 142, 0.1);
+}
+
+
 .stat {
     text-align: center;
 }
@@ -907,4 +917,259 @@ h1 {
 }
 
 
+.branches {
+    position: relative;
+    padding: 6rem 0;
+    background-color: var(--bg-color);
+    overflow: hidden;
+}
 
+.glow-effect {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background: radial-gradient(
+        circle at center,
+        rgba(62, 207, 142, 0.03) 0%,
+        transparent 70%
+    );
+    pointer-events: none;
+    animation: rotateGlow 20s linear infinite;
+}
+
+.branches-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.reveal-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealText 0.8s ease forwards;
+}
+
+.branches h2 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--text-color), var(--primary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.branches-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+}
+
+.branches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.branch-card {
+    position: relative;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(62, 207, 142, 0.1) 0%,
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.branch-card:hover .card-glow {
+    opacity: 1;
+}
+
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+}
+
+.branch-card:hover .card-shine {
+    transform: translateX(100%);
+}
+
+.branch-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(62, 207, 142, 0.2);
+    box-shadow: 
+        0 10px 30px -15px rgba(62, 207, 142, 0.15),
+        0 0 0 1px rgba(62, 207, 142, 0.1);
+}
+
+.icon-container {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(
+        135deg,
+        rgba(62, 207, 142, 0.1) 0%,
+        rgba(62, 207, 142, 0.05) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.branch-card:hover .icon-container {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.branch-card sl-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.branch-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.branch-card p {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes revealText {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+    .branches-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .branches {
+        padding: 4rem 0;
+    }
+    
+    .branches-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .branch-card {
+        padding: 2rem;
+    }
+}
+
+.branch-card i {
+    font-size: 1.22rem;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+
+.announcement-banner {
+    background: linear-gradient(90deg, var(--card-bg), var(--bg-color), var(--card-bg));
+    border-bottom: 1px solid rgba(62, 207, 142, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    height: 40px;
+}
+
+.announcement-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.announcement-content p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.announcement-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.announcement-link:hover {
+    opacity: 0.8;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .announcement-content {
+        padding: 0 1rem;
+    }
+    
+    .announcement-content p {
+        font-size: 0.85rem;
+    }
+}
