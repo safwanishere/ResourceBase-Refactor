@@ -9,6 +9,9 @@ def createApp():
     app.config["SESSION_TYPE"] = "filesystem"
     Session(app)
 
+    app.config['MAX_CONTENT_LENGTH'] = 30 * 1024 * 1024
+    app.config['UPLOAD_EXTENSIONS'] = ['.pdf']
+
     from .views import views
     from .admin import admin
 

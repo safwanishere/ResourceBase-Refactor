@@ -1,6 +1,7 @@
 import sqlite3
 from flask import Blueprint, session, redirect, render_template, request
 from functools import wraps
+from werkzeug.utils import secure_filename
 
 # helper functions
 def login_required(f):
@@ -41,10 +42,8 @@ def login():
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or rows[0][2] != request.form.get('password'):
-            print()
-            print("invalid username or password")
-            print()
-            return redirect("/admin/login")
+            error = "Invalid username or password"
+            return render_template("adminResponse.html", error=error, back="login")
 
         # Remember which user has logged in
         session["user_id"] = rows[0][0]
@@ -74,7 +73,65 @@ def logout():
 def upload():
     
     if request.method == "POST":
-        pass
+        course_name = request.form.get("course")
+        category = request.form.get("category")
+        fileName = secure_filename(request.form.get("fileName"))
+        title = request.form.get("title")
+        file = request.files['file']
+
+        if file.filename == "":
+            error = "file not uploaded"
+            return render_template("adminResponse.html", error=error, back="upload")
+        
+        dbcon = sqlite3.connect("database.db")
+        cursor = dbcon.cursor()
+
+        cursor.execute("SELECT code, semester, type FROM courses WHERE course_name = ? LIMIT 1;", (course_name,))
+        result = cursor.fetchall()[0]
+        code = result[0]
+        sem = result[1]
+        type = result[2]
+
+        theoryCategories = [
+            "Textbooks",
+            "Question Bank",
+            "Lecture Slides",
+            "Lecture Notes",
+            "Definitions and Terminology",
+            "Previous Question Papers"
+        ]
+
+        practicalCategories = [
+            "Lab Manual",
+            "Lecture Records"
+        ]
+
+        if type == "theory" and category not in theoryCategories:
+            error = f"category '{category}' does not belong to the '{type}' subject of '{course_name}'"
+            return render_template("adminResponse.html", error=error, back="upload")
+        elif type == "practical" and category not in practicalCategories:
+            error = f"category '{category}' does not belong to the '{type}' subject of '{course_name}'"
+            return render_template("adminResponse.html", error=error, back="upload")
+
+        if sem in [1, 2]:
+            year = 1
+        elif sem in [3, 4]:
+            year = 2
+        elif sem in [5, 6]:
+            year = 3
+        elif sem in [7, 8]:
+            year = 4
+
+        path = f"resources/Y{year}/{code}/{fileName}.pdf"
+
+        cursor.execute("INSERT INTO files VALUES(?, ?, ?, ?, ?, ?);", (code, course_name, category, title, fileName, path,))
+
+        dbcon.commit()
+        
+        file.save(path)
+        success = f"File '{fileName}' uploaded to '{course_name}' subject successfully"
+        return render_template("adminResponse.html", success=success, back="upload")
+
 
     else:
         dbcon = sqlite3.connect("database.db")
@@ -96,14 +153,12 @@ def upload():
             courses = cursor.fetchall()
         
         categories =  [
-            "Course Syllabus",
             "Textbooks",
             "Question Bank",
             "Lecture Slides",
             "Lecture Notes",
             "Definitions and Terminology",
             "Previous Question Papers",
-            "course syllabus",
             "Lab Manual",
             "Lecture Records"
         ]
