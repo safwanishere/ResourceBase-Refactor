@@ -45,7 +45,18 @@ def branch():
 
 @views.route('/course')
 def course():
+    courseCode = request.args.get('code')
+
+    dbCon = sqlite3.connect("database.db")
+    cursor = dbCon.cursor()
+
+    cursor.execute("SELECT course_name, category, title, path FROM files WHERE course_code = ?;", (courseCode,))
+    res = cursor.fetchall()
+
     return "course"
+
+
+
 
 @views.route('/contact')
 def contact():

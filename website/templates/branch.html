@@ -11,14 +11,9 @@
     {% if semesters %}
         {% for semester, courses in semesters.items() %}
             <h2>Semester {{ semester }}</h2>
-            <ul>
-                {% for course in courses %}
-                    <li>
-                        <strong>{{ course['course_name'] }}</strong> 
-                        (Code: {{ course['code'] }}, Type: {{ course['type'] }})
-                    </li>
-                {% endfor %}
-            </ul>
+            {% for course in courses %}
+                <button onclick="window.location.href='/course?code={{ course['code'] }}'">{{ course['course_name'] }}</button>
+            {% endfor %}
         {% endfor %}
     {% else %}
         <p>No courses found for this branch.</p>
