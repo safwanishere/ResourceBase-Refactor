@@ -60,4 +60,4 @@ def course():
 
 @views.route('/contact')
 def contact():
-    return "contact"
+    return render_template("contact.html")

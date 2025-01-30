@@ -1,0 +1,392 @@
+:root {
+    --primary-color: #2A2E35;
+    --secondary-color: #3A86FF;
+    --accent-color: #FFBE0B;
+    --bg-dark: #121212;
+    --card-bg: #1E1E1E;
+    --text-light: #E0E0E0;
+  }
+  
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .contact-card {
+    background-color: var(--card-bg);
+    border: 5px solid transparent;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-light);
+    padding: 1rem;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-title, .card-title i {
+    color: white !important;
+  }
+  
+  .team-lead-card {
+    background: linear-gradient(135deg, #2A2E35, #121212);
+    color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .team-lead-card::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background: var(--accent-color);
+    opacity: 0.1;
+    border-radius: 50%;
+  }
+  
+  .team-lead-card::after {
+    content: "LEAD";
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.1);
+  }
+  
+  .co-developer-card, .resource-member-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-light);
+  }
+  
+  .co-developer-card {
+    border-left: 4px solid var(--secondary-color);
+  }
+  
+  .resource-member-card {
+    border-left: 3px solid #28a745;
+    padding: 0.75rem;
+    margin: 0.3rem;
+  }
+  
+  .co-developer-card:hover, .resource-member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resource-member-card h5 {
+    font-size: 0.95rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+  
+  .resource-role {
+    font-size: 0.75rem;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+    color: #AED581 !important;
+    font-weight: 600;
+  }
+  
+  .resource-member-card small {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    word-break: break-word;
+    color: rgba(255, 255, 255, 0.7) !important;
+    display: block;
+  }
+  
+  .social-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+    background: rgba(255, 255, 255, 0.08);
+    margin-bottom: 0.75rem;
+    color: var(--text-light) !important;
+  }
+  
+  .social-link:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+  }
+  
+  .form-control {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.75rem 1rem;
+    height: auto;
+  }
+  
+  .form-control:focus {
+    background-color: transparent;
+    border-color: var(--secondary-color);
+    outline: none;
+  }
+  
+  .form-floating > label {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .form-floating > .form-control:focus ~ label,
+  .form-floating > .form-control:not(:placeholder-shown) ~ label {
+    transform: scale(0.85) translateY(-1.2rem) translateX(0.15rem);
+    opacity: 1;
+    color: blue;
+    background-color: transparent;
+  }
+  
+  .form-group label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .invalid-feedback {
+    color: #ff6b6b;
+  }
+  
+  .success-modal .modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+    border: none;
+    background-color: var(--card-bg);
+    color: var(--text-light);
+  }
+  
+  .checkmark__circle {
+    stroke: var(--secondary-color);
+  }
+  
+  .checkmark__check {
+    stroke: white;
+  }
+  
+  .checkmark {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    margin: 0 auto;
+    box-shadow: inset 0px 0px 0px var(--secondary-color);
+    animation: fill 0.4s ease-in-out 0.4s forwards;
+  }
+  
+  @keyframes fill {
+    100% {
+      box-shadow: inset 0px 0px 0px 40px var(--secondary-color);
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .resource-member-card {
+      padding: 1rem;
+    }
+    .resource-member-card h5 {
+      font-size: 1rem;
+    }
+    .resource-role {
+      font-size: 0.8rem;
+    }
+    .resource-member-card small {
+      font-size: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .team-lead-card {
+      padding: 1.25rem;
+    }
+    .team-lead-card h2 {
+      font-size: 1.5rem;
+    }
+    .co-developer-card h5 {
+      font-size: 1.1rem;
+    }
+    .resource-member-card {
+      padding: 0.8rem;
+      margin-bottom: 0.4rem;
+    }
+    .resource-member-card h5 {
+      font-size: 0.9rem;
+    }
+    .resource-role {
+      font-size: 0.75rem;
+    }
+    .resource-member-card small {
+      font-size: 0.65rem;
+    }
+    .social-link {
+      padding: 0.5rem;
+    }
+    .social-icon {
+      width: 35px;
+      height: 35px;
+    }
+    .contact-card {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .team-lead-card::before {
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+    }
+    .team-lead-card::after {
+      font-size: 0.9rem;
+    }
+    .resource-member-card {
+      padding: 0.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .resource-member-card h5 {
+      font-size: 0.85rem;
+    }
+    .resource-role {
+      font-size: 0.65rem;
+    }
+    .resource-member-card small {
+      font-size: 0.6rem;
+    }
+    .form-floating label {
+      font-size: 0.9rem;
+    }
+    .form-control {
+      font-size: 0.9rem;
+    }
+    .developer-role {
+      font-size: 0.8rem;
+    }
+    .success-modal .modal-dialog {
+      width: 90%;
+      margin: 0.5rem auto;
+    }
+    .checkmark {
+      width: 60px;
+      height: 60px;
+    }
+    .success-modal .modal-content {
+      border-radius: 12px;
+    }
+    .success-modal .modal-body {
+      padding: 1.5rem;
+    }
+    .success-modal h4 {
+      font-size: 1.1rem;
+    }
+    .success-modal p {
+      font-size: 0.9rem;
+    }
+    .success-modal .btn {
+      width: 100%;
+      padding: 0.5rem;
+    }
+  }
+  
+  .team-lead-card p {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  
+  .resource-role {
+    color: #AED581 !important;
+  }
+  
+  .developer-role {
+    color: #90CAF9 !important;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  
+  .social-link .text-muted, .success-modal .text-muted {
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+  .form-control,
+  .form-control:focus,
+  .form-control:not(:placeholder-shown) {
+    color: white !important; 
+  }
+  input.form-control:-webkit-autofill,
+  input.form-control:-webkit-autofill:hover, 
+  input.form-control:-webkit-autofill:focus {
+    -webkit-text-fill-color: white !important; 
+    transition: background-color 5000s ease-in-out 0s; 
+  }
+  textarea.form-control,
+  input.form-control {
+    color: white !important
+  }
+
+  #resourceCurationSection .contact-card {
+    border-color: #6CC3A4;
+  }
+  
+  #resourceTeamSection .contact-card {
+    border-color: #AA98D4;
+  }
+  
+  #directMessageSection .contact-card {
+    border-color: #E29D9F;
+  }
+  
+  #resourceCurationSection .contact-card:hover,
+  #resourceTeamSection .contact-card:hover,
+  #directMessageSection .contact-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .col-12.col-md-4 .contact-card {
+    border-color: #FA6161;
+  }
+  .text-primary {
+    white-space: nowrap;
+  }
