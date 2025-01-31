@@ -103,7 +103,7 @@ def upload():
 
         practicalCategories = [
             "Lab Manual",
-            "Lecture Records"
+            "Lab Records"
         ]
 
         if type == "theory" and category not in theoryCategories:
