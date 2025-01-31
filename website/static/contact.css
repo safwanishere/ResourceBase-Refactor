@@ -387,3 +387,19 @@
   .text-primary {
     white-space: nowrap;
   }
+  .co-developer-card p.text-primary {
+    white-space: nowrap;
+    font-size: 0.75rem; 
+  }
+
+  @media (min-width: 768px) and (max-width: 992px) {
+    .co-developer-card p.text-primary {
+        font-size: 0.7rem;
+    }
+  }
+
+  @media (min-width: 993px) and (max-width: 1200px) {
+    .co-developer-card p.text-primary {
+        font-size: clamp(0.7rem, 0.8vw, 0.75rem);
+    }
+  }
