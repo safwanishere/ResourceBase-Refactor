@@ -1,16 +1,17 @@
 ```markdown
 # ResourceBase
 
-**ResourceBase** is an open-source platform designed to be the ultimate academic companion for engineering students. **Currently in active development**, this project aims to centralize study materials, past papers, lab manuals, and other essential resources in one intuitive, community-driven hub. 
+**ResourceBase** is an open-source platform designed to be the ultimate academic companion for engineering students.
+**Currently in active development**, this project aims to centralize study materials, past papers, lab manuals, and other essential resources in one intuitive, community-driven hub. 
 
 ---
 
 ## 🚀 Project Vision
 
 Engineering students often struggle to find organized, reliable academic resources. ResourceBase solves this by providing:
-- **Centralized Access**: All resources (PDFs, notes, code samples) in one place.
-- **Community Contributions**: Students and educators can upload and verify materials.
-- **Search & Filter Tools**: Quickly find resources by subject, semester, university, or year.
+- **Centralized Access**: All resources (PDFs, notes, question banks) in one place.
+- **Community Contributions**: Students can upload and verify materials.
+- **Search & Filter Tools**: Quickly find resources by subject, semester, branch or year.
 - **Responsive Design**: Accessible on any device, anytime.
 
 **Note**: This repository is under active development. Core features are being refined, and new functionalities are being added regularly. [See the roadmap](#-coming-soon) below!
@@ -21,7 +22,6 @@ Engineering students often struggle to find organized, reliable academic resourc
 
 ### ✅ Implemented
 - **Resource Categorization**: Browse by subject, semester, and resource type.
-- **Basic Search**: Find materials using keywords.
 - **User Authentication**: Secure sign-up/login system for contributors.
 - **Responsive UI**: Mobile-first design for seamless access.
 
@@ -31,9 +31,8 @@ Engineering students often struggle to find organized, reliable academic resourc
 
 ResourceBase thrives on community input! Here’s how you can help:
 1. **Report Bugs**: Open an issue with the "bug" label.
-2. **Suggest Features**: Share ideas via the "enhancement" label.
-3. **Submit Code**: Fork the repo, create a branch, and open a PR. Follow our [Contribution Guidelines](CONTRIBUTING.md).
-
+2. **Suggest Features**: Share ideas via mailing us.
+3. **Submit Code**: Fork the repo, create a branch, and open a PR.
 All contributors are acknowledged in the project. Let’s build this together!
 
 ---
