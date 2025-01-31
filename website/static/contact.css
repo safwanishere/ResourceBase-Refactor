@@ -373,17 +373,14 @@
   #resourceTeamSection .contact-card {
     border-color: #AA98D4;
   }
-  
   #directMessageSection .contact-card {
     border-color: #E29D9F;
   }
-  
   #resourceCurationSection .contact-card:hover,
   #resourceTeamSection .contact-card:hover,
   #directMessageSection .contact-card:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
-  
   .col-12.col-md-4 .contact-card {
     border-color: #FA6161;
   }
