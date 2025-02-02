@@ -1,11 +1,15 @@
 :root {
-    --primary-color: #3ecf8e;
-    --text-color: #ececec;
-    --bg-color: #121212;
-    --card-bg: #1f1f1f;
-    --navbar-bg: rgba(18, 18, 18, 0.8);
-    --footer-bg: #1a1a1a;
+    --primary-color: #FA6161; 
+    --text-color: #ECECEC;
+    --bg-color: #1E1E1E; 
+    --card-bg: #2A2A2A; 
+    --navbar-bg: rgba(30, 30, 30, 0.8);
+    --footer-bg: #252525;
+    --accent-teal: #6CC3A4; 
+    --accent-lavender: #AA98D4; 
+    --accent-pink: #E29D9F;
 }
+
 main {
     padding-top: calc(40px + 72px); /* announcement (40px) + navbar height (padding + content) */
 }
@@ -39,11 +43,12 @@ body {
 
 .navbar {
     background-color: var(--navbar-bg);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     padding: 1rem 0;
     position: fixed;
     width: 100%;
-    top: 40px; /* announcement banner's height.. */
+    top: 40px;
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -52,6 +57,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .logo {
@@ -81,6 +89,87 @@ body {
 .btn-group {
     display: flex;
     gap: 1rem;
+    align-items: center;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--bg-color);
+    padding: 2rem;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.side-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+    text-align: left;
+    transition: color 0.2s ease;
+}
+
+.side-menu a:hover {
+    color: var(--primary-color);
+}
+
+.menu-close {
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    align-self: flex-end;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        background-color: var(--bg-color);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+    }
+    
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .side-menu {
+        background-color: var(--bg-color);
+    }
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
 }
 
 .hero {
@@ -100,7 +189,7 @@ body {
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, var(--primary-color), #64ecbd);
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-lavender));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -229,7 +318,7 @@ body {
     justify-content: space-around;
     max-width: 800px;
     margin: 0 auto;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--primary-color);
 }
 
 .stat-item {
@@ -763,12 +852,11 @@ sl-button[size="large"]::part(base) {
     left: -50%;
     top: -50%;
 }
-
 .gradient-blur-1 {
     position: absolute;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle at center, rgba(62, 207, 142, 0.15), transparent 70%);
+    background: radial-gradient(circle at center, rgba(250, 97, 97, 0.15), transparent 70%);
     top: -100px;
     right: -100px;
     border-radius: 50%;
@@ -779,12 +867,13 @@ sl-button[size="large"]::part(base) {
     position: absolute;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle at center, rgba(62, 207, 142, 0.1), transparent 70%);
+    background: radial-gradient(circle at center, rgba(250, 97, 97, 0.1), transparent 70%);
     bottom: -100px;
     left: -100px;
     border-radius: 50%;
     filter: blur(40px);
 }
+
 
 .hero-content {
     position: relative;
@@ -798,13 +887,13 @@ sl-button[size="large"]::part(base) {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;   
-    background: rgba(62, 207, 142, 0.1);
-    color: var(--primary-color);
+    background: rgba(250, 97, 97, 0.1);
+    color: var(--primary-color); 
     padding: 0.3rem 0.8rem;
     font-size: 0.875rem;
     border-radius: 100px;
     margin-bottom: 2rem;
-    border: 1px solid rgba(62, 207, 142, 0.2);
+    border: 1px solid rgba(250, 97, 97, 0.2); 
 }
 
 
@@ -820,11 +909,12 @@ h1 {
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, var(--primary-color), #64ecbd);
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-lavender));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
 
 .hero-subtitle {
     font-size: 1.25rem;
@@ -853,7 +943,7 @@ h1 {
     gap: 2rem;
     background: rgba(31, 31, 31, 0.5);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 255, 255, 0.1); 
     border-radius: 12px;
     padding: 2rem;
     max-width: 600px;
@@ -861,11 +951,12 @@ h1 {
 }
 
 .hero-stats:hover {
-    border-color: rgba(62, 207, 142, 0.2);
+    border-color: rgba(250, 97, 97, 0.2); 
     box-shadow: 
-        0 10px 30px -15px rgba(62, 207, 142, 0.15),
-        0 0 0 1px rgba(62, 207, 142, 0.1);
+        0 10px 30px -15px rgba(250, 97, 97, 0.15), 
+        0 0 0 1px rgba(250, 97, 97, 0.1);
 }
+
 
 
 .stat {
@@ -958,7 +1049,7 @@ h1 {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 600;
     margin-bottom: 1rem;
-    background: linear-gradient(to right, var(--text-color), var(--primary-color));
+    background: var(--primary-color);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -996,13 +1087,14 @@ h1 {
     inset: 0;
     background: radial-gradient(
         circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(62, 207, 142, 0.1) 0%,
+        rgba(250, 97, 97, 0.1) 0%,
         transparent 50%
     );
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events: none;
 }
+
 
 .branch-card:hover .card-glow {
     opacity: 1;
@@ -1030,10 +1122,10 @@ h1 {
 
 .branch-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(62, 207, 142, 0.2);
+    border-color: rgba(250, 97, 97, 0.2);
     box-shadow: 
-        0 10px 30px -15px rgba(62, 207, 142, 0.15),
-        0 0 0 1px rgba(62, 207, 142, 0.1);
+        0 10px 30px -15px rgba(250, 97, 97, 0.15),
+        0 0 0 1px rgba(250, 97, 97, 0.1);
 }
 
 .icon-container {
@@ -1043,8 +1135,8 @@ h1 {
     border-radius: 16px;
     background: linear-gradient(
         135deg,
-        rgba(62, 207, 142, 0.1) 0%,
-        rgba(62, 207, 142, 0.05) 100%
+        rgba(250, 97, 97, 0.1) 0%,
+        rgba(250, 97, 97, 0.05) 100%
     );
     display: flex;
     align-items: center;
@@ -1052,6 +1144,7 @@ h1 {
     margin-bottom: 1.5rem;
     transition: transform 0.3s ease;
 }
+
 
 .branch-card:hover .icon-container {
     transform: scale(1.1) rotate(5deg);
@@ -1163,7 +1256,6 @@ h1 {
     opacity: 0.8;
 }
 
-/* Mobile responsiveness */
 @media (max-width: 768px) {
     .announcement-content {
         padding: 0 1rem;

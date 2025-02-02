@@ -67,3 +67,18 @@ document.querySelectorAll('.stat-value').forEach(stat => {
             faqItem.setAttribute('data-open', !isOpen);
         });
     });
+
+// toggles the side menu when the hamburger icon is clicked
+function toggleMenu() {
+    // get the side menu element by its ID
+    const sideMenu = document.getElementById('sideMenu');
+    
+    // check if the menu is already visible (right is 0px)
+    // if it's visible, slide it out by setting right to -250px
+    // if it's hidden, slide it in by setting right to 0px
+    const menuRight = sideMenu.style.right === "0px" ? "-250px" : "0px";
+    
+    // update the right position to either show or hide the menu
+    sideMenu.style.right = menuRight;
+}
+

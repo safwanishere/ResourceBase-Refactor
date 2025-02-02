@@ -30,23 +30,37 @@
       </div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="container">
-        <a href="#" class="logo">Resource Hub</a>
-        <div class="nav-links">
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container">
+      <a href="#" class="logo">Resource Hub</a>
+      <div class="hamburger-menu" onclick="toggleMenu()">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+      </div>
+      <div class="nav-links">
           <a href="#cta fullscreen-section">Community</a>
           <div class="btn-group">
-            <a href="/contact">
-              <sl-button size="small">Contact</sl-button>
-            </a>
-            <a href="/admin/login">
-              <sl-button size="small" variant="primary">Admin Login</sl-button>
-            </a>
+              <a href="/contact">
+                  <sl-button size="small">Contact</sl-button>
+              </a>
+              <a href="/admin/login">
+                  <sl-button size="small" variant="primary">Admin Login</sl-button>
+              </a>
           </div>
-        </div>
       </div>
-    </nav>
+  </div>
+</nav>
+
+<!-- Side Menu -->
+<div class="side-menu" id="sideMenu">
+  <div class="menu-close" onclick="toggleMenu()">&times;</div>
+  <a href="#cta fullscreen-section">Community</a>
+  <a href="/contact">Contact</a>
+  <a href="/admin/login">Admin Login</a>
+</div>
+
 
     <!-- Hero Section -->
     <section class="hero">
@@ -432,39 +446,27 @@
             <a href="#" class="logo">Resource Hub</a>
             <p>Making education accessible to everyone.</p>
             <div class="social-links">
-              <a href="#"><sl-icon name="twitter"></sl-icon></a>
-              <a href="#"><sl-icon name="github"></sl-icon></a>
-              <a href="#"><sl-icon name="linkedin"></sl-icon></a>
+              <!-- <a href="#"><sl-icon name="twitter"></sl-icon></a> -->
+              <a href="https://github.com/safwanishere/ResourceBase" target="_blank">
+                <sl-icon name="github"></sl-icon>
+              </a>
+              <a href="https://www.linkedin.com/in/mohammed-safwan-955353292/" target="_blank">
+                  <sl-icon name="linkedin"></sl-icon>
+              </a>
             </div>
           </div>
           <div class="footer-links">
-            <h4>Product</h4>
-            <a href="#">Features</a>
-            <a href="#">Pricing</a>
-            <a href="#">Resources</a>
-            <a href="#">Updates</a>
-          </div>
-          <div class="footer-links">
-            <h4>Company</h4>
-            <a href="#">About</a>
-            <a href="#">Blog</a>
-            <a href="#">Careers</a>
-            <a href="#">Contact</a>
-          </div>
-          <div class="footer-links">
-            <h4>Resources</h4>
-            <a href="#">Documentation</a>
-            <a href="#">Help Center</a>
+            <h4>Admin</h4>
+            <a href="#">Admin Login</a>
+        </div>
+        <div class="footer-links">
+            <h4>Community</h4>
             <a href="#">Community</a>
-            <a href="#">Status</a>
-          </div>
-          <div class="footer-links">
-            <h4>Legal</h4>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Security</a>
-            <a href="#">DPA</a>
-          </div>
+        </div>
+        <div class="footer-links">
+            <h4>Contact</h4>
+            <a href="#">Contact</a>
+        </div>
         </div>
         <div class="footer-bottom">
           <p>&copy; 2025 Resource Hub. All rights reserved.</p>
