@@ -64,7 +64,23 @@ def course():
 
     cursor.execute("SELECT course_name, category, title, path, name FROM files WHERE course_code = ? ORDER BY category, title;", (courseCode,))
     res = cursor.fetchall()
-    courseName = res[0][0]
+    
+    try:
+        courseName = res[0][0]
+    except:
+        cursor.execute("SELECT course_name FROM courses WHERE code = ? LIMIT 1;", (courseCode,))
+        try:
+            courseName = cursor.fetchall()[0][0]
+            return render_template(
+                "course.html",
+                courseName=courseName,
+                courseCode=courseCode
+            )
+        except:
+            return render_template(
+                "course.html",
+                error="course doesn't exist"
+            )
 
     cursor.execute("SELECT type FROM courses WHERE code = ?;", (courseCode,))
     type = cursor.fetchall()[0][0]
@@ -93,13 +109,14 @@ def course():
         
         return render_template(
             "course.html",
+            courseName=courseName,
+            courseCode=courseCode,
             textbooks=textbooks,
             questionBank=questionBank,
             lectureSlides=lectureSlides,
             lectureNotes=lectureNotes,
             dt=dt,
             pyq=pyq,
-            course=courseName,
             type=type
         )
                 
@@ -118,7 +135,8 @@ def course():
             "course.html",
             labManual=labManual,
             labRecords=labRecords,
-            course=courseName,
+            courseName=courseName,
+            courseCode=courseCode,
             type=type
         )
 
