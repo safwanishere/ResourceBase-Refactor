@@ -60,9 +60,11 @@
                 <input type="text" name="title" id="title" placeholder="Enter document title" required>
             </div>
 
-            <label class="file-upload">
-                <input type="file" name="file" accept=".pdf" required>
-                <p>Click or drag and drop to upload file</p>
+            <label class="file-upload" id="fileUploadContainer">
+                <input type="file" id="fileInput" name="file" accept=".pdf" required>
+                <div class="file-info">
+                    <span class="file-default-text">Click or drag and drop to upload file</span>
+                </div>
             </label>
 
             <button type="submit">Upload Resource</button>
@@ -70,9 +72,32 @@
     </div>
 
     <script>
-        // Handle drag and drop
         const dropZone = document.querySelector('.file-upload');
         const fileInput = document.getElementById('fileInput');
+
+        function formatFileSize(bytes) {
+            if (bytes < 1024) {
+                return bytes + ' bytes';
+            } else if (bytes < 1024 * 1024) {
+                return (bytes / 1024).toFixed(1) + ' KB';
+            } else {
+                return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+            }
+        }
+
+        function updateFileDisplay(file) {
+            const fileInfoContainer = dropZone.querySelector('.file-info');
+            fileInfoContainer.innerHTML = `
+                <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" 
+                     style="width: 1.5em; height: 1.5em; vertical-align: middle; margin-right: 0.5em;">
+                    <rect width="64" height="64" rx="8" fill="#E0433F"></rect>
+                    <text x="32" y="42" text-anchor="middle" fill="#fff" font-size="20" font-family="Arial, sans-serif">PDF</text>
+                </svg>
+                <span class="file-title">${file.name}</span>
+                <span class="file-size">(${formatFileSize(file.size)})</span>
+            `;
+            dropZone.classList.add('uploaded');
+        }
 
         dropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
@@ -89,8 +114,17 @@
         dropZone.addEventListener('drop', (e) => {
             e.preventDefault();
             fileInput.files = e.dataTransfer.files;
+            if (fileInput.files.length) {
+                updateFileDisplay(fileInput.files[0]);
+            }
             dropZone.style.borderColor = 'rgba(255, 255, 255, 0.1)';
             dropZone.style.backgroundColor = 'transparent';
+        });
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length) {
+                updateFileDisplay(fileInput.files[0]);
+            }
         });
     </script>
 </body>
