@@ -2,75 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ResourceBase | {{ course }}</title>
+    <link rel="stylesheet" href="../static/course.css">
 </head>
 <body>
-    <h1>{{ courseName }}</h1>
+    <div class="container">
+        <h1>{{ courseName }}</h1>
 
-    <div class="divider"></div>
+        <div class="divider"></div>
 
-    {% if type == "theory" %}
+        {% if type == "theory" %}
+            {% if textbooks|length > 0 %}
+                <section>
+                    <h2>Textbooks</h2>
+                    {% for row in textbooks %}
+                        <div class="resource-item">
+                            <span class="resource-title">{{ row[2] }}</span>
+                            <div class="action-buttons">
+                                <button class="icon-button preview-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24">
+                                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                    </svg>
+                                </button>
+                                <a class="icon-button download-btn" href="/static/{{ row[3] }}" download>
+                                    <svg width="16" height="16" viewBox="0 0 24 24">
+                                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                                    </svg>
+                                </a>
+                                <button class="icon-button open-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24">
+                                        <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </section>
+            {% endif %}
 
-        {% if textbooks|length > 0 %}
+            <div class="divider"></div>
+
             <section>
-                <h2>Textbooks</h2>
-
-                {% for row in textbooks %}
-                    <section class="titleContainer">
-                        <p>{{ row[2] }}</p>
-                        <a class="downloadButton" href="/static/{{ row[3] }}" download>
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em" height="1em"
-                            viewBox="0 0 24 24">
-                            <path d="M16.59 9H15V4c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v5H7.41c-.89 0-1.34 1.08-.71 1.71l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.63-.63.19-1.71-.7-1.71M5 19c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H6c-.55 0-1 .45-1 1"/></svg>
-                        </a>
-                        <button class="toggleButton ps" onclick="displayPdf('{{ row[4] }}', '{{ row[1] ~ row[4] }}');">open</button>
-                    </section>
-                    <center>
-                        <object
-                        class="{{ row[4] }} {{ row[1] ~ row[4] }}"
-                        data="{{ row[3] }}"
-                        height="800" width="800">
-                        </object>
-                    </center>
+                <h2>Question Bank</h2>
+                {% for item in qb_items %}
+                    <div class="resource-item">
+                        <span class="resource-title">{{ item.title }}</span>
+                        <div class="action-buttons">
+                            <button class="icon-button preview-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                </svg>
+                            </button>
+                            <a class="icon-button download-btn" href="{{ item.download_url }}" download>
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                                </svg>
+                            </a>
+                            <button class="icon-button open-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 {% endfor %}
-
             </section>
         {% endif %}
-
-        {% if textbooks|length > 0 %}
-            <section>
-                <h2>Textbooks</h2>
-
-                {% for row in textbooks %}
-                    <section class="titleContainer">
-                        <p>{{ row[2] }}</p>
-                        <a class="downloadButton" href="/static/{{ row[3] }}" download>
-                            <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em" height="1em"
-                            viewBox="0 0 24 24">
-                            <path d="M16.59 9H15V4c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v5H7.41c-.89 0-1.34 1.08-.71 1.71l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.63-.63.19-1.71-.7-1.71M5 19c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H6c-.55 0-1 .45-1 1"/></svg>
-                        </a>
-                        <button class="toggleButton ps" onclick="displayPdf('{{ row[4] }}', '{{ row[1] ~ row[4] }}');">open</button>
-                    </section>
-                    <center>
-                        <object
-                        class="{{ row[4] }} {{ row[1] ~ row[4] }}"
-                        data="{{ row[3] }}"
-                        height="800" width="800">
-                        </object>
-                    </center>
-                {% endfor %}
-
-            </section>
-        {% endif %}
-
-    <!-- {% elif type == "practical" %} -->
-
-    {% endif %}
+    </div>
 </body>
+<script>
+    // proper way to handle the pdf viewer to be implemented once the backend is ready to serve pdf files
+    function togglePdfViewer(pdfUrl, buttonElement) {
+    const container = buttonElement.closest('.resource-item');
+    let viewer = container.querySelector('.pdf-viewer');
+    if (!viewer) {
+        viewer = document.createElement('div');
+        viewer.className = 'pdf-viewer';
+        viewer.innerHTML = `<object data="${pdfUrl}" type="application/pdf" width="100%" height="800px"></object>`;
+        container.appendChild(viewer);
+    }
+    viewer.classList.toggle('visible');
+}
+</script>
 </html>

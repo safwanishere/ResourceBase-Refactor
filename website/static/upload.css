@@ -1,14 +1,15 @@
-        :root {
-            --primary-color: #3ecf8e;
-            --text-color: #ececec;
-            --bg-color: #121212;
-            --card-bg: #1f1f1f;
-            --navbar-bg: rgba(18, 18, 18, 0.8);
-            --footer-bg: #1a1a1a;
-            --border-color: rgba(236, 236, 236, 0.1);
-            --hover-bg: rgba(62, 207, 142, 0.1);
-            --input-bg: rgba(18, 18, 18, 0.6);
-        }
+:root {
+    --primary-color: #FA6161;
+    --text-color: #ECECEC;
+    --bg-color: #1E1E1E;
+    --card-bg: #2A2A2A;
+    --navbar-bg: rgba(30, 30, 30, 0.8);
+    --footer-bg: #252525;
+    --border-color: rgba(236, 236, 236, 0.1);
+    --hover-bg: rgba(169, 32, 50, 0.1); 
+    --input-bg: rgba(18, 18, 18, 0.6);
+}
+
 
         * {
             margin: 0;
@@ -83,7 +84,7 @@
         select:focus, input[type="text"]:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(62, 207, 142, 0.15);
+            box-shadow: 0 0 0 3px var(--primary-color);
         }
 
         select:hover, input[type="text"]:hover {
@@ -148,7 +149,7 @@
 
         button:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(62, 207, 142, 0.2);
+            box-shadow: 0 4px 12px var(--primary-color);
         }
 
         button:active {
@@ -239,5 +240,5 @@
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #2fb77a;
+            background: var(--primary-color);
         }
