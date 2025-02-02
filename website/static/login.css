@@ -6,15 +6,16 @@
 }
 
 :root {
-    --primary-color: #3ecf8e;
-    --text-color: #ececec;
-    --bg-color: #121212;
-    --card-bg: #1f1f1f;
-    --navbar-bg: rgba(18, 18, 18, 0.8);
-    --footer-bg: #1a1a1a;
-    --error-color: #ff4b4b;
+    --primary-color: #FA6161; 
+    --text-color: #ECECEC;
+    --bg-color: #1E1E1E; 
+    --card-bg: #2A2A2A; 
+    --navbar-bg: rgba(30, 30, 30, 0.8);
+    --footer-bg: #252525;
+    --error-color: #E29D9F;
     --input-bg: rgba(255, 255, 255, 0.02);
 }
+
 
 body {
     background-color: var(--bg-color);
@@ -72,7 +73,7 @@ input {
 input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.15);
+    box-shadow: 0 0 0 2px var(--primary-color);
 }
 
 input::placeholder {
@@ -94,12 +95,12 @@ button {
 }
 
 button:hover {
-    background-color: #2fb77a;
+    background-color: var(--primary-color);
 }
 
 button:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.25);
+    box-shadow: 0 0 0 2px var(--primary-color);
 }
 
 .admin-badge {
