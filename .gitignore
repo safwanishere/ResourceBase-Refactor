@@ -1,0 +1,8 @@
+# ignore the flask_session folder (session data)
+flask_session/
+
+# ignore __pycache__ directories (compiled python files)
+__pycache__/
+
+# ignore .pyc files (compiled python bytecode files)
+*.pyc
