@@ -1,4 +1,3 @@
-```markdown
 # ResourceBase
 
 **ResourceBase** is an open-source platform designed to be the ultimate academic companion for engineering students.
@@ -55,4 +54,3 @@ All contributors are acknowledged in the project. Let’s build this together!
 ---
 
 *ResourceBase is being actively developed. Expect frequent updates, breaking changes, and exciting new features!*
-```
