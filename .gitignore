@@ -1,0 +1,6 @@
+# ignore ALL pycache files
+*.pyc
+
+# ignore ALL files in the directories __pycache__ and flask_session
+__pycache__/
+flask_session/
