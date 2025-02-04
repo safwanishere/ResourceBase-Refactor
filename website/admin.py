@@ -124,11 +124,13 @@ def upload():
 
         path = f"resources/Y{year}/{code}/{fileName}.pdf"
 
+        file.save(f"website/static/{path}")
+
         cursor.execute("INSERT INTO files VALUES(?, ?, ?, ?, ?, ?);", (code, course_name, category, title, fileName, path,))
 
         dbcon.commit()
         
-        file.save(path)
+        
         success = f"File '{fileName}' uploaded to '{course_name}' subject successfully"
         return render_template("adminResponse.html", success=success, back="upload")
 
