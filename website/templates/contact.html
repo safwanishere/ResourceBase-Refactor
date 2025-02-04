@@ -232,32 +232,32 @@
                 <div class="contact-card card h-100">
                     <div class="card-body">
                         <h4 class="card-title mb-3 fs-5"><i class="fas fa-paper-plane me-2"></i>Send Direct Message</h4>
-                        <form id="contactForm" novalidate>
+                        <form id="contactForm" action="/contact" method="post">
                             <div class="row g-3">
                                 <div class="col-12 col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder=" " required>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder=" " required>
                                         <label for="name">Full Name</label>
                                         <div class="invalid-feedback">Please enter your name</div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder=" " required>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder=" " required>
                                         <label for="email">Email Address</label>
                                         <div class="invalid-feedback">Please enter a valid email</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" placeholder=" " required>
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder=" " required>
                                         <label for="subject">Subject Line</label>
                                         <div class="invalid-feedback">Please enter a subject</div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" id="message" placeholder=" " style="height: 120px" required></textarea>
+                                        <textarea class="form-control" name="message" id="message" placeholder=" " style="height: 120px" required></textarea>
                                         <label for="message">Your Message</label>
                                         <div class="invalid-feedback">Please enter your message</div>
                                     </div>
@@ -297,8 +297,18 @@
         </div>
     </div>
     
+    {% if sent %}
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        successModal.show();
+        form.reset();
+    </script>
+
+    {% endif %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../static/scripts/contact.js"></script>
+    <!-- <script src="../static/scripts/contact.js"></script> -->
 </body>
 </html>

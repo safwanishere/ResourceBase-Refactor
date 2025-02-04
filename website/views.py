@@ -143,6 +143,26 @@ def course():
 
 
 
-@views.route('/contact')
+@views.route('/contact', methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html")
+
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        subject = request.form.get("subject")
+        message = request.form.get("message")
+
+        dbCon = sqlite3.connect("database.db")
+        cursor = dbCon.cursor()
+
+        cursor.execute(
+            "INSERT INTO contact (name, email, subject, message, datetime) VALUES (?,?,?,?,CURRENT_TIMESTAMP);",
+            (name, email, subject, message,)
+        )
+
+        dbCon.commit()
+
+        return render_template("contact.html", sent=True)
+    
+    else:
+        return render_template("contact.html")
