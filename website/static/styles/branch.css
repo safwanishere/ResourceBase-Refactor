@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #1E1E1E;
+    color: white;
+    font-size: 62.5%;
+}
+
+.mainText{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 100%;
+    display: block;
+    padding: 0;
+    margin: 0;
+    color: rgb(190, 35, 21);
+}
+
+h1{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 3.6rem;
+    line-height: 130%;
+    word-spacing: 5px;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+.title{
+    text-align: center;
+    margin: 9vh auto;
+}
+
+h2{
+    font-family: 'Oswald', sans-serif;
+    font-weight: light;
+    font-size: 2rem;
+    line-height: 100%;
+    display: block;
+    padding: 0;
+    margin: 15px 0;
+    letter-spacing: 1px;
+    color: white;
+    font-weight: lighter;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    display: inline-block;
+    color: rgb(205, 205, 205);
+}
+
+button{
+    background-color: inherit;
+    border: solid 5px #5E77F9;
+    border-radius: 20px;
+    height: 8vh;
+    margin: 2vh 5% 2vh 0;
+    padding: 0 2% 0 2%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    color: white;
+}
+
+button:hover{
+    background-color: #5E77F9;
+    color: white;
+    transition: 200ms;
+}
+
+button:active{
+    background-color: #1E1E1E;
+    color: white;
+}
+
+.semContainer{
+    margin: 3vh 15% 10vh 15%;
+    padding: 7vh 5%;
+    border: solid 5px #fa595e;
+    border-radius: 20px;
+}
