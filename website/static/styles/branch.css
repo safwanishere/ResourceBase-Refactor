@@ -1,4 +1,4 @@
-body{
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -6,83 +6,135 @@ body{
     background-color: #1E1E1E;
     color: white;
     font-size: 62.5%;
-}
-
-.mainText{
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 1.6rem;
-    line-height: 100%;
-    display: block;
-    padding: 0;
-    margin: 0;
-    color: rgb(190, 35, 21);
+    line-height: 1.6;
 }
 
-h1{
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.fadeIn {
+    animation: fadeInAnimation 1s ease-in-out;
+}
+@keyframes fadeInAnimation {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1 {
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
     font-size: 3.6rem;
     line-height: 130%;
     word-spacing: 5px;
-    display: block;
-    padding: 0;
     margin: 0;
 }
 
-.title{
+.title {
     text-align: center;
-    margin: 9vh auto;
+    margin: 2vh auto 9vh auto;
+    overflow-wrap: break-word;
 }
 
-h2{
+.semContainer {
+    background-color: #2E2E2E;
+    margin: 4vh 10% 12vh 10%;
+    padding: 5vh 5%;
+    border: 5px solid #fa595e;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.semContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+.semContainer h2 {
     font-family: 'Oswald', sans-serif;
-    font-weight: light;
+    font-weight: lighter;
     font-size: 2rem;
-    line-height: 100%;
-    display: block;
-    padding: 0;
-    margin: 15px 0;
+    margin: 15px 0 10px 0;
     letter-spacing: 1px;
     color: white;
-    font-weight: lighter;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #fa595e;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.semester-count {
+    background: linear-gradient(135deg, #fa595e, #f77f7b);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
 }
 
-p{
+p {
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
-    display: inline-block;
     color: rgb(205, 205, 205);
 }
 
-button{
+.course-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+button {
     background-color: inherit;
-    border: solid 5px #5E77F9;
+    border: 5px solid #5E77F9;
     border-radius: 20px;
     height: 8vh;
-    margin: 2vh 5% 2vh 0;
-    padding: 0 2% 0 2%;
+    padding: 0 2%;
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     text-transform: capitalize;
     cursor: pointer;
     color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
-
-button:hover{
+button:hover {
     background-color: #5E77F9;
-    color: white;
-    transition: 200ms;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
-
-button:active{
+button:active {
     background-color: #1E1E1E;
-    color: white;
+    transform: translateY(0);
+    box-shadow: none;
 }
 
-.semContainer{
-    margin: 3vh 15% 10vh 15%;
-    padding: 7vh 5%;
-    border: solid 5px #fa595e;
-    border-radius: 20px;
+.mainText {
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: rgb(190, 35, 21);
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    .semContainer {
+        margin: 3vh 5%;
+        padding: 5vh 3%;
+    }
+    .course-buttons {
+        flex-direction: column;
+        gap: 2vh;
+    }
+    button {
+        width: 100%;
+    }
 }
