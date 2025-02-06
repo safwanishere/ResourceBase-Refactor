@@ -2,30 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ResourceBase | {{ branch_name }}</title>
-
     <link rel="stylesheet" href="../static/styles/branch.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Oswald:wght@300;400&family=Raleway:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Oswald:wght@300;400&family=Raleway:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="title">{{ branch_name }}</h1>
-    
-    {% if semesters %}
-        {% for semester, courses in semesters.items() %}
-            <div class="semContainer">
-            <h2>Semester {{ semester }}</h2>
-            {% for course in courses %}
-                <button onclick="window.location.href='/course?code={{ course['code'] }}'">{{ course['course_name'] }}</button>
+    <div class="wrapper fadeIn">
+        <h1 class="title">{{ branch_name }}</h1>
+        
+        {% if semesters %}
+            {% for semester, courses in semesters.items() %}
+                <div class="semContainer">
+                    <h2>
+                        <span class="semester-title">Semester {{ semester }}</span>
+                        <span class="semester-count">{{ courses|length }} Courses</span>
+                    </h2>
+                    <div class="course-buttons">
+                        {% for course in courses %}
+                            <button onclick="window.location.href='/course?code={{ course['code'] }}'">
+                                {{ course['course_name'] }}
+                            </button>
+                        {% endfor %}
+                    </div>
+                </div>
             {% endfor %}
-            </div>
-        {% endfor %}
-    {% else %}
-        <p>No courses found for this branch.</p>
-    {% endif %}
+        {% else %}
+            <p>No courses found for this branch.</p>
+        {% endif %}
+    </div>
 </body>
 </html>
