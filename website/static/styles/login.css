@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #3ecf8e;
+    --primary-color: #D14343;
     --text-color: #ececec;
     --bg-color: #121212;
     --card-bg: #1f1f1f;
@@ -72,7 +72,7 @@ input {
 input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.15);
+    box-shadow: 0 0 0 2px #d1434331;
 }
 
 input::placeholder {
@@ -94,12 +94,12 @@ button {
 }
 
 button:hover {
-    background-color: #2fb77a;
+    background-color: #D14343;
 }
 
 button:focus {
     outline: none;
-    box-shadow: 0 0 0 2px rgba(62, 207, 142, 0.25);
+    box-shadow: 0 0 0 2px #d143434f;
 }
 
 .admin-badge {

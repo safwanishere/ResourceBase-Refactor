@@ -1,12 +1,12 @@
         :root {
-            --primary-color: #3ecf8e;
+            --primary-color: #D14343;
             --text-color: #ececec;
             --bg-color: #121212;
             --card-bg: #1f1f1f;
             --navbar-bg: rgba(18, 18, 18, 0.8);
             --footer-bg: #1a1a1a;
             --border-color: rgba(236, 236, 236, 0.1);
-            --hover-bg: rgba(62, 207, 142, 0.1);
+            --hover-bg: #d1434323;
             --input-bg: rgba(18, 18, 18, 0.6);
         }
 
@@ -83,7 +83,7 @@
         select:focus, input[type="text"]:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(62, 207, 142, 0.15);
+            box-shadow: 0 0 0 3px #d1434336;
         }
 
         select:hover, input[type="text"]:hover {
@@ -148,7 +148,7 @@
 
         button:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(62, 207, 142, 0.2);
+            box-shadow: 0 4px 12px #d1434342;
         }
 
         button:active {
@@ -239,5 +239,5 @@
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #2fb77a;
+            background: #D14343;
         }

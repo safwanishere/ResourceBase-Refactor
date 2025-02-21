@@ -46,7 +46,7 @@ def login():
             return render_template("adminResponse.html", error=error, back="login")
 
         # Remember which user has logged in
-        session["user_id"] = rows[0][0]
+        session["user_id"] = rows[0][1]
 
         cursor.close()
         dbcon.close()
@@ -126,7 +126,9 @@ def upload():
 
         file.save(f"website/static/{path}")
 
-        cursor.execute("INSERT INTO files VALUES(?, ?, ?, ?, ?, ?);", (code, course_name, category, title, fileName, path,))
+        user = session["user_id"]
+
+        cursor.execute("INSERT INTO files VALUES(?, ?, ?, ?, ?, ?, ?);", (code, course_name, category, title, fileName, path, user,))
 
         dbcon.commit()
         
@@ -140,7 +142,7 @@ def upload():
         cursor = dbcon.cursor()
 
         user_id = session["user_id"]
-        cursor.execute("SELECT * FROM admins WHERE ID = ?;", (user_id,))
+        cursor.execute("SELECT * FROM admins WHERE username = ?;", (user_id,))
         rows = cursor.fetchall()
         role = rows[0][3]
         

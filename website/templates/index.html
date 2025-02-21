@@ -17,30 +17,31 @@
       src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.19.1/cdn/shoelace-autoloader.js"
     ></script>
     <script src="../static/scripts/script.js" defer></script>
-    <title>Resource Hub - Everything you need, to learn</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Oswald:wght@300;400&family=Raleway:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
+
+    <title>ResourceBase - Everything you need, to learn</title>
   </head>
 
   <body>
-    <div class="announcement-banner">
-      <div class="announcement-content">
-        <p>
-          Join our WhatsApp Community for exclusive resources and updates —
-          <a href="#" class="announcement-link">Click here</a>
-        </p>
-      </div>
+
+    <div class="announcement-banner" style="background-color: gold;">
+      <marquee><h2 class="marqueeText"> All new website, same old reliable resources! </h2></marquee>
     </div>
 
     <!-- Navbar -->
     <nav class="navbar">
       <div class="container">
-        <a href="#" class="logo">Resource Hub</a>
+        <a href="#" class="logo">ResourceBase</a>
         <div class="nav-links">
-          <a href="#cta fullscreen-section">Community</a>
+          <a href="#cta fullscreen-section" class="nav-link-fullscreen">Community</a>
           <div class="btn-group">
             <a href="/contact">
               <sl-button size="small">Contact</sl-button>
             </a>
-            <a href="/admin/login">
+            <a href="/admin/login" class="nav-link-fullscreen">
               <sl-button size="small" variant="primary">Admin Login</sl-button>
             </a>
           </div>
@@ -71,14 +72,14 @@
             one place.
           </p>
           <div class="hero-cta">
-            <sl-button variant="default" size="small"
-              >Start exploring free</sl-button
-            >
-
-            <sl-button size="small" variant="primary">
-              <sl-icon name="book"></sl-icon>
-              View Library</sl-button
-            >
+            <a href="#faq-section">
+              <sl-button variant="default" size="small">View FAQs</sl-button>
+            </a>
+            <a href="#branches">
+              <sl-button size="small" variant="primary">
+                <sl-icon name="book"></sl-icon> Start exploring
+              </sl-button>
+            </a>
           </div>
         </div>
         <div class="hero-stats">
@@ -86,28 +87,28 @@
             <div
               id="stat1"
               class="stat-value"
-              data-target="500"
+              data-target="15000"
               data-suffix="+"
             >
               0
             </div>
-            <div class="stat-label">Materials</div>
+            <div class="stat-label">Active Users</div>
           </div>
           <div class="divider"></div>
           <div class="stat">
             <div
               id="stat2"
               class="stat-value"
-              data-target="5000"
+              data-target="1113"
               data-suffix="+"
             >
               0
             </div>
-            <div class="stat-label">Students</div>
+            <div class="stat-label">Community Members</div>
           </div>
           <div class="divider"></div>
           <div class="stat">
-            <div id="stat3" class="stat-value" data-target="50" data-suffix="+">
+            <div id="stat3" class="stat-value" data-target="120" data-suffix="+">
               0
             </div>
             <div class="stat-label">Subjects</div>
@@ -154,18 +155,22 @@
           Choose your course to get the best learning resources tailored for you
         </p>
 
-        <div class="branches-grid">
-          <div class="branch-card">
-            <div class="icon-container">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3>Computer Science Engineering</h3>
-            <p>
-              Explore the world of software development, algorithms, and
-              cutting-edge technology.
-            </p>
-          </div>
+          <div class="branches-grid">
 
+          <a href="/branch?branchName=cse" style="text-decoration: none;">
+            <div class="branch-card">
+              <div class="icon-container">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Computer Science Engineering</h3>
+              <p>
+                Explore the world of software development, algorithms, and
+                cutting-edge technology.
+              </p>
+            </div>
+        </a>
+
+        <a href="/branch?branchName=cs" style="text-decoration: none;">
           <div class="branch-card">
             <div class="icon-container">
               <i class="fas fa-shield-alt"></i>
@@ -176,7 +181,9 @@
               practical knowledge.
             </p>
           </div>
+        </a>
 
+        <a href="/branch?branchName=it" style="text-decoration: none;">
           <div class="branch-card">
             <div class="icon-container">
               <i class="fas fa-laptop"></i>
@@ -187,7 +194,9 @@
               using technology.
             </p>
           </div>
+        </a>
 
+        <a href="/branch?branchName=eee" style="text-decoration: none;">
           <div class="branch-card">
             <div class="icon-container">
               <i class="fas fa-bolt"></i>
@@ -198,7 +207,9 @@
               modern electronics.
             </p>
           </div>
+        </a>
 
+        <a href="/branch?branchName=mech" style="text-decoration: none;">
           <div class="branch-card">
             <div class="icon-container">
               <i class="fas fa-cogs"></i>
@@ -209,7 +220,9 @@
               mechanical systems.
             </p>
           </div>
+        </a>
 
+        <a href="/branch?branchName=aiml" style="text-decoration: none;">
           <div class="branch-card">
             <div class="icon-container">
               <i class="fas fa-brain"></i>
@@ -220,7 +233,9 @@
               intelligent systems.
             </p>
           </div>
+        </a>
 
+        <a href="/branch?branchName=ds" style="text-decoration: none;">
           <div class="branch-card">
             <div class="icon-container">
               <i class="fas fa-chart-line"></i>
@@ -231,7 +246,9 @@
               informed decisions.
             </p>
           </div>
+        </a>
 
+        <a href="/branch?branchName=ece" style="text-decoration: none;">
           <div class="branch-card">
             <div class="icon-container">
               <i class="fas fa-broadcast-tower"></i>
@@ -242,7 +259,9 @@
               for modern networks.
             </p>
           </div>
+        </a>
 
+        <a href="/branch?branchName=civil" style="text-decoration: none;">
           <div class="branch-card">
             <div class="icon-container">
               <i class="fas fa-hard-hat"></i>
@@ -253,7 +272,9 @@
               bridges, and buildings.
             </p>
           </div>
-
+        </a>
+      
+        <a href="/branch?branchName=aero" style="text-decoration: none;">
           <div class="branch-card">
             <div class="icon-container">
               <i class="fas fa-rocket"></i>
@@ -264,6 +285,8 @@
               and spacecraft.
             </p>
           </div>
+        </a>
+
         </div>
       </div>
     </section>
@@ -429,45 +452,37 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <a href="#" class="logo">Resource Hub</a>
+            <a href="#" class="logo">ResourceBase</a>
             <p>Making education accessible to everyone.</p>
             <div class="social-links">
-              <a href="#"><sl-icon name="twitter"></sl-icon></a>
-              <a href="#"><sl-icon name="github"></sl-icon></a>
-              <a href="#"><sl-icon name="linkedin"></sl-icon></a>
+              <!-- <a href="#"><sl-icon name="twitter"></sl-icon></a> -->
+              <a href="https://github.com/safwanishere/ResourceBase" target="_blank">
+                <sl-icon name="github"></sl-icon>
+              </a>
+              <a href="https://www.linkedin.com/in/mohammed-safwan-955353292/" target="_blank">
+                  <sl-icon name="linkedin"></sl-icon>
+              </a>
             </div>
           </div>
           <div class="footer-links">
-            <h4>Product</h4>
-            <a href="#">Features</a>
-            <a href="#">Pricing</a>
-            <a href="#">Resources</a>
-            <a href="#">Updates</a>
-          </div>
+            <h4></h4>
+            <a></a>
+        </div>
           <div class="footer-links">
-            <h4>Company</h4>
-            <a href="#">About</a>
-            <a href="#">Blog</a>
-            <a href="#">Careers</a>
-            <a href="#">Contact</a>
-          </div>
-          <div class="footer-links">
-            <h4>Resources</h4>
-            <a href="#">Documentation</a>
-            <a href="#">Help Center</a>
-            <a href="#">Community</a>
-            <a href="#">Status</a>
-          </div>
-          <div class="footer-links">
-            <h4>Legal</h4>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Security</a>
-            <a href="#">DPA</a>
-          </div>
+            <h4>Admin</h4>
+            <a href="/admin/login">Admin Login</a>
+        </div>
+        <div class="footer-links">
+            <h4>Community</h4>
+            <a href="#cta fullscreen-section">Community</a>
+        </div>
+        <div class="footer-links">
+            <h4>Contact</h4>
+            <a href="/contact">Contact</a>
+        </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Resource Hub. All rights reserved.</p>
+          <p>&copy; 2023 ResourceBase. All rights reserved.</p>
         </div>
       </div>
     </footer>

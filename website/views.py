@@ -6,6 +6,7 @@ views = Blueprint('views', __name__)
 BRANCHES = {
     "cse": "Computer Science Engineering",
     "aiml": "Artificial Intelligence and Machine Learning",
+    "it": "Information Technology",
     "cs": "Cyber Security",
     "ds": "Data Science",
     "aero": "Aeronautical Engineering",
