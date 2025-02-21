@@ -3,8 +3,14 @@
     --secondary-color: #3A86FF;
     --accent-color: #FFBE0B;
     --bg-dark: #121212;
+    --text-color: #ececec;
     --card-bg: #1E1E1E;
+    --navbar-bg: #1a1a1acb;
     --text-light: #E0E0E0;
+  }
+
+  main {
+    padding-top: calc(40px + 72px);
   }
   
   body {
@@ -16,6 +22,63 @@
     scroll-behavior: smooth;
   }
   
+  .announcement-banner{
+    background-color: #b9b9b9;
+    border: dashed rgb(0, 0, 0) 2px;
+    color: rgb(0, 0, 0);
+    height: 40px;
+}
+
+.announcement-banner h2{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    line-height: 6vh;
+    font-style: italic;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    background-color: var(--navbar-bg);
+    backdrop-filter: blur(8px);
+    padding: 1rem 0;
+    width: 100%;
+    border-bottom: 3px solid #DFBBB1;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #D14343;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #D14343;
+}
+
   .contact-card {
     background-color: var(--card-bg);
     border: 5px solid transparent;
