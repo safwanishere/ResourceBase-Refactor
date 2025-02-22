@@ -1,4 +1,5 @@
 import sqlite3
+import os
 from flask import Blueprint, session, redirect, render_template, request
 from functools import wraps
 from werkzeug.utils import secure_filename
@@ -203,6 +204,45 @@ def announce():
         if role == 'admin':
             dbCon.close()
             return render_template("announce.html")
+        
+        else:
+            dbCon.close()
+            return "access denied"
+        
+@admin.route('/delete', methods=["GET", "POST"])
+@login_required
+def delete():
+
+    if request.method == "POST":
+        name = request.form.get("name")
+        dbCon = sqlite3.connect("database.db")
+        cursor = dbCon.cursor()
+
+        cursor.execute("SELECT path FROM files WHERE name = ?", (name,))
+        path = cursor.fetchall()[0][0]
+        path = f"website/static/{path}"
+
+        if os.path.exists(path):
+            os.remove(path)
+
+        cursor.execute("DELETE FROM files WHERE name = ?", (name,))
+        dbCon.commit()
+
+        return redirect("/")
+
+    else:
+        user = session["user_id"]
+
+        dbCon = sqlite3.connect("database.db")
+        cursor = dbCon.cursor()
+
+        cursor.execute("SELECT role FROM admins WHERE username = ?;", (user,))
+        role = cursor.fetchall()[0][0]
+
+        if role == 'admin':
+            cursor.execute("SELECT name FROM files ORDER BY ROWID DESC;")
+            names = cursor.fetchall()
+            return render_template("delete.html", names=names)
         
         else:
             dbCon.close()
