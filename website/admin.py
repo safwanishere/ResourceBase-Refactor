@@ -171,3 +171,39 @@ def upload():
         dbcon.close()
 
         return render_template("upload.html", branches=branches, courses=courses, categories=categories)
+    
+
+
+@admin.route('/announce', methods=["GET", "POST"])
+@login_required
+def announce():
+
+    if request.method == "POST":
+        announcement = request.form.get("announcement")
+        color = request.form.get("color")
+
+        try: 
+            dbCon = sqlite3.connect("database.db")
+            cursor = dbCon.cursor()
+            cursor.execute("INSERT INTO announcements VALUES (?,?);", (announcement, color,))
+            dbCon.commit()
+            return redirect("/")
+        except:
+            return "error"
+    
+    else:
+        user = session["user_id"]
+
+        dbCon = sqlite3.connect("database.db")
+        cursor = dbCon.cursor()
+
+        cursor.execute("SELECT role FROM admins WHERE username = ?;", (user,))
+        role = cursor.fetchall()[0][0]
+
+        if role == 'admin':
+            dbCon.close()
+            return render_template("announce.html")
+        
+        else:
+            dbCon.close()
+            return "access denied"

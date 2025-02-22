@@ -23,7 +23,15 @@ def get_db_connection():
 
 @views.route('/')
 def index():
-    return render_template("index.html")
+
+    dbCon = sqlite3.connect("database.db")
+    cursor = dbCon.cursor()
+    cursor.execute("SELECT MAX(ROWID), * FROM announcements;")
+    rows = cursor.fetchall()[0]
+    announcement = rows[1]
+    color = rows[2]
+
+    return render_template("index.html", announcement=announcement, color=color)
 
 @views.route('/branch')
 def branch():
