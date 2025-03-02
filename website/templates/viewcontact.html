@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view contact</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>subject</th>
+            <th>message</th>
+            <th>datetime</th>
+        </tr>
+
+        {% for row in rows %}
+            <tr>
+                <th>{{ row[1] }}</th>
+                <th>{{ row[2] }}</th>
+                <th>{{ row[3] }}</th>
+                <th>{{ row[4] }}</th>
+                <th>{{ row[5] }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

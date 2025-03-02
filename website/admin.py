@@ -15,7 +15,11 @@ def login_required(f):
 
     return decorated_function
 
+BASE_DIR = os.path.abspath(os.path.dirname("database.db"))
 
+def dbConnection():
+    connection = sqlite3.connect(os.path.join(BASE_DIR, 'database.db'))
+    return connection
 
 admin = Blueprint('admin', __name__)
 
@@ -33,8 +37,8 @@ def login():
             return redirect("/admin/login")
 
         # Query database for username
-        dbcon = sqlite3.connect("database.db")
-        cursor = dbcon.cursor()
+        dbCon = dbConnection()
+        cursor = dbCon.cursor()
 
         cursor.execute(
             f"SELECT * FROM admins WHERE username = ?;", (request.form.get('username'),)
@@ -44,13 +48,14 @@ def login():
         # Ensure username exists and password is correct
         if len(rows) != 1 or rows[0][2] != request.form.get('password'):
             error = "Invalid username or password"
+            dbCon.close()
             return render_template("adminResponse.html", error=error, back="login")
 
         # Remember which user has logged in
         session["user_id"] = rows[0][1]
 
         cursor.close()
-        dbcon.close()
+        dbCon.close()
 
         # Redirect user to home page
         return redirect("/admin/upload")
@@ -84,8 +89,8 @@ def upload():
             error = "file not uploaded"
             return render_template("adminResponse.html", error=error, back="upload")
         
-        dbcon = sqlite3.connect("database.db")
-        cursor = dbcon.cursor()
+        dbCon = dbConnection()
+        cursor = dbCon.cursor()
 
         cursor.execute("SELECT code, semester, type FROM courses WHERE course_name = ? LIMIT 1;", (course_name,))
         result = cursor.fetchall()[0]
@@ -131,7 +136,7 @@ def upload():
 
         cursor.execute("INSERT INTO files VALUES(?, ?, ?, ?, ?, ?, ?);", (code, course_name, category, title, fileName, path, user,))
 
-        dbcon.commit()
+        dbCon.commit()
         
         
         success = f"File '{fileName}' uploaded to '{course_name}' subject successfully"
@@ -139,8 +144,8 @@ def upload():
 
 
     else:
-        dbcon = sqlite3.connect("database.db")
-        cursor = dbcon.cursor()
+        dbCon = dbConnection()
+        cursor = dbCon.cursor()
 
         user_id = session["user_id"]
         cursor.execute("SELECT * FROM admins WHERE username = ?;", (user_id,))
@@ -169,9 +174,9 @@ def upload():
         ]
 
         cursor.close()
-        dbcon.close()
+        dbCon.close()
 
-        return render_template("upload.html", branches=branches, courses=courses, categories=categories)
+        return render_template("upload.html", branches=branches, courses=courses, categories=categories, role=role)
     
 
 
@@ -184,7 +189,7 @@ def announce():
         color = request.form.get("color")
 
         try: 
-            dbCon = sqlite3.connect("database.db")
+            dbCon = dbConnection()
             cursor = dbCon.cursor()
             cursor.execute("INSERT INTO announcements VALUES (?,?);", (announcement, color,))
             dbCon.commit()
@@ -195,7 +200,7 @@ def announce():
     else:
         user = session["user_id"]
 
-        dbCon = sqlite3.connect("database.db")
+        dbCon = dbConnection()
         cursor = dbCon.cursor()
 
         cursor.execute("SELECT role FROM admins WHERE username = ?;", (user,))
@@ -215,7 +220,7 @@ def delete():
 
     if request.method == "POST":
         name = request.form.get("name")
-        dbCon = sqlite3.connect("database.db")
+        dbCon = dbConnection()
         cursor = dbCon.cursor()
 
         cursor.execute("SELECT path FROM files WHERE name = ?", (name,))
@@ -233,7 +238,7 @@ def delete():
     else:
         user = session["user_id"]
 
-        dbCon = sqlite3.connect("database.db")
+        dbCon = dbConnection()
         cursor = dbCon.cursor()
 
         cursor.execute("SELECT role FROM admins WHERE username = ?;", (user,))
@@ -242,8 +247,30 @@ def delete():
         if role == 'admin':
             cursor.execute("SELECT name FROM files ORDER BY ROWID DESC;")
             names = cursor.fetchall()
+            dbCon.close()
             return render_template("delete.html", names=names)
         
         else:
             dbCon.close()
             return "access denied"
+        
+@admin.route('/viewcontact', methods=["GET"])
+@login_required
+def viewcontact():
+    
+    dbCon = dbConnection()
+    cursor = dbCon.cursor()
+
+    user = session["user_id"]
+    cursor.execute("SELECT role FROM admins WHERE username = ?;", (user,))
+    role = cursor.fetchall()[0][0]
+
+    if role == 'admin':
+        cursor.execute("SELECT * FROM contact;")
+        rows = cursor.fetchall()
+        dbCon.close()
+
+        return render_template("viewcontact.html", rows=rows)
+    
+    else:
+        return "access denied"

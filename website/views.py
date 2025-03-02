@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template,request
 import sqlite3
+import os
 
 views = Blueprint('views', __name__)
 
@@ -16,20 +17,29 @@ BRANCHES = {
     "eee": "Electrical and Electronics Engineering"
 }
 
+BASE_DIR = os.path.abspath(os.path.dirname("database.db"))
+
 def get_db_connection():
-    connection = sqlite3.connect('database.db')
+    connection = sqlite3.connect(os.path.join(BASE_DIR, 'database.db'))
     connection.row_factory = sqlite3.Row
     return connection
+
+def dbConnection():
+    connection = sqlite3.connect(os.path.join(BASE_DIR, 'database.db'))
+    return connection
+
 
 @views.route('/')
 def index():
 
-    dbCon = sqlite3.connect("database.db")
+    dbCon = dbConnection()
     cursor = dbCon.cursor()
     cursor.execute("SELECT MAX(ROWID), * FROM announcements;")
     rows = cursor.fetchall()[0]
     announcement = rows[1]
     color = rows[2]
+
+    dbCon.close()
 
     return render_template("index.html", announcement=announcement, color=color)
 
@@ -68,7 +78,7 @@ def branch():
 def course():
     courseCode = request.args.get('code')
 
-    dbCon = sqlite3.connect("database.db")
+    dbCon = dbConnection()
     cursor = dbCon.cursor()
 
     cursor.execute("SELECT course_name, category, title, path, name FROM files WHERE course_code = ? ORDER BY category, title;", (courseCode,))
@@ -115,6 +125,8 @@ def course():
                 pyq.append(row)
             elif row[1] == "Definitions and Terminology":
                 dt.append(row)
+
+        dbCon.close()
         
         return render_template(
             "course.html",
@@ -140,6 +152,8 @@ def course():
             elif row[1] == "Lab Records":
                 labRecords.append(row)
 
+        dbCon.close()
+
         return render_template(
             "course.html",
             labManual=labManual,
@@ -161,7 +175,7 @@ def contact():
         subject = request.form.get("subject")
         message = request.form.get("message")
 
-        dbCon = sqlite3.connect("database.db")
+        dbCon = dbConnection()
         cursor = dbCon.cursor()
 
         cursor.execute(
@@ -170,6 +184,7 @@ def contact():
         )
 
         dbCon.commit()
+        dbCon.close()
 
         return render_template("contact.html", sent=True)
     

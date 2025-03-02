@@ -69,6 +69,12 @@
 
             <button type="submit">Upload Resource</button>
         </form>
+    
+        {% if role == "admin" %}
+            <a href="/admin/announce" style="color:gray;">announce</a>
+            <a href="/admin/delete" style="color:gray;">delete</a>
+            <a href="/admin/viewcontact" style="color:gray;">viewcontact</a>
+        {% endif %}
     </div>
 
     <script>
