@@ -138,3 +138,49 @@ button:active {
         width: 100%;
     }
 }
+
+
+/* back button added */
+.back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto;
+    height: 5vh !important;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.096) !important;
+    transform: none !important;
+}
+
+.back-button svg {
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 768px) {
+    .back-button {
+        top: 1rem;
+        left: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .back-button {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
