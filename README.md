@@ -5,28 +5,16 @@
 
 ---
 
-## 🚀 Project Vision
+## Key Features (Current & Planned)
 
-Engineering students often struggle to find organized, reliable academic resources. ResourceBase solves this by providing:
-- **Centralized Access**: All resources (PDFs, notes, question banks) in one place.
-- **Community Contributions**: Students can upload and verify materials.
-- **Search & Filter Tools**: Quickly find resources by subject, semester, branch or year.
-- **Responsive Design**: Accessible on any device, anytime.
-
-**Note**: This repository is under active development. Core features are being refined, and new functionalities are being added regularly. [See the roadmap](#-coming-soon) below!
-
----
-
-## ✨ Key Features (Current & Planned)
-
-### ✅ Implemented
+### Implemented
 - **Resource Categorization**: Browse by subject, semester, and resource type.
 - **User Authentication**: Secure sign-up/login system for contributors.
 - **Responsive UI**: Mobile-first design for seamless access.
 
 ---
 
-## 🤝 How to Contribute
+## How to Contribute
 
 ResourceBase thrives on community input! Here’s how you can help:
 1. **Report Bugs**: Open an issue with the "bug" label.
@@ -36,7 +24,7 @@ All contributors are acknowledged in the project. Let’s build this together!
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 - Contributors who’ve submitted issues, PRs, or feedback.
 - Resource Curators powering this project.
 - Engineering students for inspiring this solution.
@@ -49,7 +37,8 @@ All contributors are acknowledged in the project. Let’s build this together!
 - GitHub: [@safwanishere](https://github.com/safwanishere)  
 - Email: [ mohammedsafwan261205@gmail.com]  
 
-**Project Link**: [https://github.com/safwanishere/ResourceBase-Refactor](https://github.com/safwanishere/ResourceBase-Refactor)
+**Project Link**: [https://github.com/safwanishere/ResourceBase-Refactor](https://github.com/safwanishere/ResourceBase-Refactor)  
+**Live LInk**: [Resourcebase.in](https://resourcebase.in)
 
 ---
 
